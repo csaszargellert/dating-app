@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div
+    style="text-align: center"
+    *ngIf="!registrationMode; else registerContainer"
+  >
+    <h1>Find your match!</h1>
+
+    <p class="lead">
+      Come on in and view your matches... all you need to is sign up!
+    </p>
+    <div class="text-center">
+      <button
+        (click)="onToggleRegistrationMode()"
+        class="btn btn-primary btn-lg me-2"
+      >
+        Register
+      </button>
+      <button class="btn btn-outline-primary btn-lg">Learn More</button>
+    </div>
+  </div>
+
+  <ng-template #registerContainer>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-4">
+          <app-register
+            (cancelRegistrationForm)="onToggleRegistrationMode()"
+          ></app-register>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>
