@@ -19,8 +19,7 @@ export class NavComponent {
 
   public constructor(
     protected accountService: AccountService,
-    private router: Router,
-    private toastr: ToastrService
+    private router: Router
   ) {}
 
   onLogin(): void {
@@ -34,7 +33,6 @@ export class NavComponent {
       },
       error: (error) => {
         console.log(error);
-        this.toastr.error('Invalid credentials');
       },
     });
   }

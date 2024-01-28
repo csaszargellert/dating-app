@@ -6,6 +6,10 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { MessagesComponent } from './messages/messages.component';
 import { ListsComponent } from './lists/lists.component';
 import { authGuard } from './guards/auth.guard';
+import { ErrorsComponent } from './errors/errors.component';
+import { NotFoundError } from 'rxjs';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 const routes: Routes = [
   {
@@ -35,10 +39,21 @@ const routes: Routes = [
       },
     ],
   },
-
+  {
+    path: 'errors',
+    component: ErrorsComponent,
+  },
+  {
+    path: 'not-found',
+    component: NotFoundComponent,
+  },
+  {
+    path: 'server-error',
+    component: ServerErrorComponent,
+  },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: 'not-found',
     pathMatch: 'full',
   },
 ];
